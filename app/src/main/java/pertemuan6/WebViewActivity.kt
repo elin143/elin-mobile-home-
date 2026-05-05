@@ -30,7 +30,7 @@ class WebViewActivity : AppCompatActivity() {
             webViewClient = WebViewClient()
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
-            loadUrl("https://elin-inventaris.alwaysdata.net/") // ganti ke web kamu nanti
+            loadUrl("https://elin-inventaris.alwaysdata.net/")
         }
     }
 

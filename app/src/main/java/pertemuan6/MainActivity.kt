@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.elin_cortis.BaseActivity
 import com.example.elin_cortis.R
 import com.example.elin_cortis.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -51,6 +52,10 @@ class MainActivity : AppCompatActivity() {
         }
         binding.btnweb.setOnClickListener {
             startActivity(Intent(this, WebViewActivity::class.java))
+        }
+        binding.button.setOnClickListener {
+            val intent = Intent(this, BaseActivity::class.java)
+            startActivity(intent)
         }
     }
 }

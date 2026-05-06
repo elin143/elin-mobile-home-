@@ -8,6 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.elin_cortis.R
+import com.example.elin_cortis.RegistrasiActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -26,7 +27,7 @@ class SplashScreenActivity : AppCompatActivity() {
         //Kondisi jika isLogin bernilai true
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
-            val intent = Intent(this, pertemuan6.MainActivity::class.java)
+            val intent = Intent(this, RegistrasiActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -34,7 +35,7 @@ class SplashScreenActivity : AppCompatActivity() {
         lifecycleScope.launch {
             delay(2000) //simulasi pengambilan data selama 2 detik
 //wow
-            var intent = Intent(this@SplashScreenActivity, MainActivity::class.java)
+            var intent = Intent(this@SplashScreenActivity, RegistrasiActivity::class.java)
             startActivity(intent)
             finish()
         }

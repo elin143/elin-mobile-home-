@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="#BADBAE">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="Informasi pengembang aplikasi"
             android:textSize="14sp"
-            android:textColor="#00A8E8"
+            android:textColor="#57043D"
             android:layout_marginTop="4dp"
             android:layout_gravity="center"/>
 

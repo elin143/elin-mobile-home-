@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.elin_cortis.BaseActivity
 import com.example.elin_cortis.R
+import com.example.elin_cortis.RegistrasiActivity
 import com.example.elin_cortis.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                     editor.clear()
                     editor.apply()
 
-                    val intent = Intent(this, AuthActivity::class.java)
+                    val intent = Intent(this, RegistrasiActivity::class.java)
 
                     finish()
                 }

@@ -7,9 +7,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.elin_cortis.databinding.ActivityBaseBinding
-import pertemuan_7.AboutFragment
-import pertemuan_7.HomeFragment
-import pertemuan_7.ProfilFragment
+import com.example.elin_cortis.pertemuan_7.AboutFragment
+import com.example.elin_cortis.pertemuan_7.HomeFragment
+import com.example.elin_cortis.pertemuan_7.ProfilFragment
+import com.example.elin_cortis.pertemuan_9.SettingsFragment
 
 class BaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding
@@ -39,6 +40,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.more -> {
                     replaceFragment(ProfilFragment())
+                    true
+                }
+                R.id.settings -> {
+                    replaceFragment(SettingsFragment())
                     true
                 }
                 else -> false // return false jika item tidak ada yang di klik

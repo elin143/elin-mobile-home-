@@ -1,4 +1,4 @@
-package pertemuan6
+package com.example.elin_cortis.pertemuan6
 
 import android.content.Intent
 import android.os.Bundle
@@ -27,7 +27,7 @@ class SplashScreenActivity : AppCompatActivity() {
         //Kondisi jika isLogin bernilai true
         val isLogin = sharedPref.getBoolean("isLogin", false)
         if (isLogin) {
-            val intent = Intent(this, RegistrasiActivity::class.java)
+            val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -35,7 +35,7 @@ class SplashScreenActivity : AppCompatActivity() {
         lifecycleScope.launch {
             delay(2000) //simulasi pengambilan data selama 2 detik
 //wow
-            var intent = Intent(this@SplashScreenActivity, RegistrasiActivity::class.java)
+            var intent = Intent(this@SplashScreenActivity, AuthActivity::class.java)
             startActivity(intent)
             finish()
         }

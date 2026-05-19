@@ -1,4 +1,4 @@
-package pertemuan6
+package com.example.elin_cortis.pertemuan6
 
 import android.content.Intent
 import android.os.Bundle

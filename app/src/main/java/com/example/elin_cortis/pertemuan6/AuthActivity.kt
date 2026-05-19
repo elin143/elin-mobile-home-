@@ -1,4 +1,4 @@
-package pertemuan6
+package com.example.elin_cortis.pertemuan6
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.elin_cortis.R
+import com.example.elin_cortis.RegistrasiActivity
 import com.example.elin_cortis.databinding.ActivityAuthBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 class AuthActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAuthBinding
@@ -31,7 +33,20 @@ class AuthActivity : AppCompatActivity() {
             val username = binding.inputUsername.text.toString()
             val password = binding.inputPw.text.toString()
 
-            if(username == password){
+            val regUser = sharedPref.getString("username", "")
+            val regpass = sharedPref.getString("password", "")
+
+            if (username.isEmpty() || password.isEmpty()) {
+                Snackbar.make(binding.root, " Username dan password tidak boleh kosong", Snackbar.LENGTH_LONG)
+                    .show()
+                return@setOnClickListener
+
+            }
+
+            val rule_1 = (username == regUser)
+            val rule_2 = (regUser != "" && rule_1 && password == regpass)
+
+            if (rule_1 || rule_2) {
 
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", true)
@@ -39,6 +54,7 @@ class AuthActivity : AppCompatActivity() {
                 editor.apply()
 
                 val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("username", username)
                 startActivity(intent)
                 finish()
             }else{
@@ -51,6 +67,12 @@ class AuthActivity : AppCompatActivity() {
                     }
                     .show()
             }
+
+        }
+        binding.signup.setOnClickListener {
+            val intent = Intent (this, RegistrasiActivity::class.java)
+            startActivity(intent)
+
         }
     }
 }

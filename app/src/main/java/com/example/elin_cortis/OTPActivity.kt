@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.elin_cortis.databinding.ActivityOtpactivityBinding
 import com.google.android.material.snackbar.Snackbar
-import pertemuan6.MainActivity
+import com.example.elin_cortis.pertemuan6.MainActivity
 
 class OTPActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOtpactivityBinding
@@ -25,11 +25,15 @@ class OTPActivity : AppCompatActivity() {
             insets
         }
 
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
+
         //OTP
         binding.submitOTP.setOnClickListener {
-            val input_no_hp = intent.getStringExtra("nomorHp")
+            val input_no_hp = binding.verifikasi.text.toString()
+            val reg_no_hp = sharedPref.getString("No_HP", "")
 
-            if (binding.verifikasi.text.toString() == input_no_hp) {
+            if (reg_no_hp == input_no_hp) {
                 intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
 

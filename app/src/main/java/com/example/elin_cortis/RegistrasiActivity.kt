@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.elin_cortis.databinding.ActivityRegistrasiBinding
+import com.google.android.material.snackbar.Snackbar
 
 class RegistrasiActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegistrasiBinding
@@ -20,13 +21,40 @@ class RegistrasiActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        //Regist
+
         binding.submit.setOnClickListener {
             val input_no_hp = binding.nomorHp.text.toString()
-            val intent = Intent(this, OTPActivity::class.java)
-            intent.putExtra("evelin", input_no_hp)
-            startActivity(intent)
-        }
+            val nama = binding.nama.text.toString()
+            val username = binding.username.text.toString()
+            val password = binding.Password.text.toString()
 
+            var errorMessage: String? = null
+            if (nama.isEmpty()) {
+                errorMessage = "Nama tidak boleh kosong"
+            } else if (username.isEmpty()) {
+                errorMessage = "Username tidak boleh kosong"
+            } else if (input_no_hp.isEmpty()) {
+                errorMessage = "Nomor HP tidak boleh kosong"
+            } else if (password.isEmpty()) {
+                errorMessage = "Password tidak boleh kosong"
+            }
+
+            if (errorMessage != null) {
+                Snackbar.make(binding.root, errorMessage, Snackbar.LENGTH_LONG).show()
+            } else {
+                val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+                val editor = sharedPref.edit()
+
+                editor.putString("Registered Name", nama)
+                editor.putString("Username", username)
+                editor.putString("No_HP", input_no_hp)
+                editor.putString("Password", password)
+                editor.apply()
+
+                val intent = Intent(this, OTPActivity::class.java)
+                intent.putExtra("evelin", input_no_hp)
+                startActivity(intent)
+            }
+        }
     }
 }

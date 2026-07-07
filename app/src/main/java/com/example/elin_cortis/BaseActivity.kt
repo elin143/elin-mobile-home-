@@ -7,10 +7,10 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.elin_cortis.databinding.ActivityBaseBinding
-import com.example.elin_cortis.pertemuan_7.AboutFragment
-import com.example.elin_cortis.pertemuan_7.HomeFragment
-import com.example.elin_cortis.pertemuan_7.ProfilFragment
-import com.example.elin_cortis.pertemuan_9.SettingsFragment
+import com.example.elin_cortis.About.AboutFragment
+import com.example.elin_cortis.Home.HomeFragment
+import com.example.elin_cortis.Profil.ProfilFragment
+import com.example.elin_cortis.Home.pertemuan_9.SettingsFragment
 
 class BaseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBaseBinding

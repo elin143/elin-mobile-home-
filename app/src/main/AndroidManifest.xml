@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
 
     <application
         android:allowBackup="true"
@@ -13,14 +16,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Elincortis">
+        <receiver
+            android:name=".utils.ReminderReceiver"
+            android:exported="false"/>
+
         <activity
-            android:name=".pertemuan_9.NinthActivity"
+            android:name=".Aset.AsetActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_5.WebView5Activity"
+            android:name=".Aset.FormAsetActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan_5.FifthActivity"
+            android:name=".About.Tutorial.TutorialMessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_10.TenthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_9.NinthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_5.WebView5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.pertemuan_5.FifthActivity"
             android:exported="false" />
         <activity
             android:name=".OTPActivity"
@@ -32,10 +51,10 @@
             android:name=".BaseActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan6.WebViewActivity"
+            android:name=".Home.pertemuan6.WebViewActivity"
             android:exported="false" />
         <activity
-            android:name=".pertemuan6.SplashScreenActivity"
+            android:name=".Home.pertemuan6.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +63,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pertemuan6.AuthActivity"
+            android:name=".Home.pertemuan6.AuthActivity"
             android:exported="false" />
         <activity
             android:name=".custom"
@@ -62,7 +81,7 @@
             android:name=".Hitung_hitung"
             android:exported="false" />
         <activity
-            android:name=".pertemuan6.MainActivity"
+            android:name=".Home.pertemuan6.MainActivity"
             android:exported="false" />
     </application>
 

@@ -1,7 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Elincortis" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- Dark theme – Sage Green Bina Desa Inventory -->
+    <style name="Base.Theme.Elincortis" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- ═══ Primary Colors – Sage Green (Dark) ═══ -->
+        <item name="colorPrimary">@color/sage_inverse_primary</item>
+        <item name="colorPrimaryVariant">@color/sage_primary</item>
+        <item name="colorOnPrimary">@color/sage_on_primary_container</item>
+
+        <!-- ═══ Secondary Colors (Dark) ═══ -->
+        <item name="colorSecondary">#C0D2A9</item>
+        <item name="colorSecondaryVariant">#58624B</item>
+        <item name="colorOnSecondary">@color/sage_on_secondary_container</item>
+
+        <!-- ═══ Background & Surface (Dark) ═══ -->
+        <item name="android:colorBackground">#1A1C18</item>
+        <item name="colorOnBackground">#E2E3DA</item>
+        <item name="colorSurface">#1A1C18</item>
+        <item name="colorOnSurface">#E2E3DA</item>
+
+        <!-- ═══ Error Colors (Dark) ═══ -->
+        <item name="colorError">#FFB4AB</item>
+        <item name="colorOnError">#690005</item>
+
+        <!-- ═══ Status Bar (Dark) ═══ -->
+        <item name="android:statusBarColor">#11130E</item>
+        <item name="android:navigationBarColor">#1A1C18</item>
     </style>
 </resources>

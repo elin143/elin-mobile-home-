@@ -4,53 +4,228 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#BADBAE"
-    tools:context=".pertemuan_7.HomeFragment">
+    android:background="#F4F7F4"
+    tools:context=".Home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <View
+        android:id="@+id/headerBackground"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#1E3A27"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Villagio • Inventaris Aset Desa"
+        android:textColor="#BADBAE"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.4" />
 
+    <TextView
+        android:id="@+id/subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sistem Manajemen &amp; Monitoring Aset Digital"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:fontFamily="sans-serif"
+        android:alpha="0.8"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        android:layout_marginTop="4dp"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn5"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="-30dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+            <View
+                android:id="@+id/icon5"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#BADBAE"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/title5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/icon5"
+                android:layout_marginStart="16dp"
+                android:text="Pertemuan 5"
+                android:textStyle="bold"
+                android:textColor="#1E3A27"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/icon5"
+                android:layout_below="@id/title5"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Data Aset Tanah &amp; Bangunan Desa"
+                android:textColor="#7F8C8D"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn9"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/btn5"
+        app:layout_constraintStart_toStartOf="@+id/btn5"
+        app:layout_constraintTop_toBottomOf="@+id/btn5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+            <View
+                android:id="@+id/icon9"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#BADBAE"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/title9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/icon9"
+                android:layout_marginStart="16dp"
+                android:text="Pertemuan 9"
+                android:textStyle="bold"
+                android:textColor="#1E3A27"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/icon9"
+                android:layout_below="@id/title9"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Peralatan, Kendaraan &amp; Mesin"
+                android:textColor="#7F8C8D"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn10"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/btn9"
+        app:layout_constraintStart_toStartOf="@+id/btn9"
+        app:layout_constraintTop_toBottomOf="@+id/btn9">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+            <View
+                android:id="@+id/icon10"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="#BADBAE"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/title10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/icon10"
+                android:layout_marginStart="16dp"
+                android:text="Pertemuan 10"
+                android:textStyle="bold"
+                android:textColor="#1E3A27"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/icon10"
+                android:layout_below="@id/title10"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="Konstruksi Jalan, Jembatan &amp; Irigasi"
+                android:textColor="#7F8C8D"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnlogout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_height="36dp"
         android:text="logout"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn9" />
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
 
-    <Button
-        android:id="@+id/btn5"
+    <TextView
+        android:id="@+id/lblGallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="Pertemuan 5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        android:text="Galeri &amp; Log Aset Terbaru"
+        android:textColor="#1E3A27"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn10"
+        app:layout_constraintStart_toStartOf="parent"/>
 
-    <Button
-        android:id="@+id/btn9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Pertemuan 9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn5" />
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGallery"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblGallery"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

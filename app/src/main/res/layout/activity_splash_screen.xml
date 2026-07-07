@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CBEDC7"
-    tools:context=".pertemuan6.SplashScreenActivity">
+    tools:context=".Home.pertemuan6.SplashScreenActivity">
 
     <ImageView
         android:id="@+id/imageView3"

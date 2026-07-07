@@ -1,25 +1,30 @@
-package com.example.elin_cortis.pertemuan_7
+package com.example.elin_cortis.Home
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.elin_cortis.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.elin_cortis.Home.pertemuan6.AuthActivity
+import com.example.elin_cortis.Home.pertemuan_10.TenthActivity
+import com.example.elin_cortis.Home.pertemuan_5.FifthActivity
+import com.example.elin_cortis.Home.pertemuan_9.NinthActivity
+import com.example.elin_cortis.Home.photo.PhotoAdapter
+import com.example.elin_cortis.data.model.api.PhotoApiClient
+import com.example.elin_cortis.data.model.api.PhotoApiService
 import com.example.elin_cortis.databinding.FragmentHomeBinding
-import com.example.elin_cortis.pertemuan6.AuthActivity
-import com.example.elin_cortis.pertemuan_5.FifthActivity
-import com.example.elin_cortis.pertemuan_9.NinthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +48,10 @@ class HomeFragment : Fragment() {
             val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
         }
+        binding.btn10.setOnClickListener {
+            val intent = Intent(requireContext(), TenthActivity::class.java)
+            startActivity(intent)
+        }
         binding.btnlogout.setOnClickListener {
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Konfirmasi")
@@ -54,7 +63,7 @@ class HomeFragment : Fragment() {
                     editor.clear()
                     editor.apply()
 
-                    val intent = Intent(requireContext(), AuthActivity ::class.java)
+                    val intent = Intent(requireContext(), AuthActivity::class.java)
 
                     requireActivity().finish()
                 }
@@ -64,5 +73,28 @@ class HomeFragment : Fragment() {
                 }
                 .show()
         }
+    loadPhoto()
+}
+
+private fun loadPhoto() {
+    lifecycleScope.launch {
+        try {
+            val photos = PhotoApiClient.apiService.getPhotos()
+            val adapter = PhotoAdapter(photos)
+            binding.rvGallery.adapter = adapter
+
+            /** List Tampil Vertical*/
+            binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+
+            /** List Tampil Horizontal */
+            //binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+            /** List Tampil Grid */
+            //binding.rvGallery.layoutManager = GridLayoutManager(requireContext(),2)
+
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+        }
     }
+}
 }

@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.elin_cortis.databinding.ActivityOtpactivityBinding
 import com.google.android.material.snackbar.Snackbar
-import com.example.elin_cortis.pertemuan6.MainActivity
+import com.example.elin_cortis.Home.pertemuan6.MainActivity
 
 class OTPActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOtpactivityBinding

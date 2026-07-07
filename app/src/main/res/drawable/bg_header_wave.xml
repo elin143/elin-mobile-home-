@@ -7,7 +7,7 @@
 
     <!-- Isi model path yang diinginkan -->
     <path
-        android:fillColor="#809B5B"
+        android:fillColor="#6B7F5D"
         android:pathData="
             M0,0
             L100,0

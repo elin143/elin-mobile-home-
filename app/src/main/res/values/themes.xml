@@ -1,8 +1,30 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Elincortis" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Base application theme – Sage Green Bina Desa Inventory -->
+    <style name="Base.Theme.Elincortis" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- ═══ Primary Colors – Sage Green ═══ -->
+        <item name="colorPrimary">@color/sage_primary</item>
+        <item name="colorPrimaryVariant">@color/sage_toolbar_dark</item>
+        <item name="colorOnPrimary">@color/sage_on_primary</item>
+
+        <!-- ═══ Secondary Colors ═══ -->
+        <item name="colorSecondary">@color/sage_accent</item>
+        <item name="colorSecondaryVariant">@color/sage_secondary</item>
+        <item name="colorOnSecondary">@color/sage_on_secondary</item>
+
+        <!-- ═══ Background & Surface ═══ -->
+        <item name="android:colorBackground">@color/sage_background</item>
+        <item name="colorOnBackground">@color/sage_on_background</item>
+        <item name="colorSurface">@color/sage_surface</item>
+        <item name="colorOnSurface">@color/sage_on_surface</item>
+
+        <!-- ═══ Error Colors ═══ -->
+        <item name="colorError">@color/sage_error</item>
+        <item name="colorOnError">@color/sage_on_error</item>
+
+        <!-- ═══ Status Bar ═══ -->
+        <item name="android:statusBarColor">@color/sage_toolbar_dark</item>
+        <item name="android:navigationBarColor">@color/sage_surface</item>
     </style>
 
     <style name="Theme.Elincortis" parent="Base.Theme.Elincortis" />

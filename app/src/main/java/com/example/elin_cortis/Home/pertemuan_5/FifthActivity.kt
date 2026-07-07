@@ -1,6 +1,8 @@
-package com.example.elin_cortis.pertemuan_9
+package com.example.elin_cortis.Home.pertemuan_5
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -8,41 +10,54 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.elin_cortis.R
-import com.example.elin_cortis.databinding.ActivityNinthBinding
-import com.google.android.material.chip.Chip
+import com.example.elin_cortis.databinding.ActivityFifthBinding
 
-class NinthActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityNinthBinding
+class FifthActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityFifthBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
-        binding = ActivityNinthBinding.inflate(layoutInflater)
+
+        // Inisialisasi View Binding
+        binding = ActivityFifthBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+
+        // Mengatur padding edge-to-edge
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            v.setPadding(
+                systemBars.left,
+                systemBars.top,
+                systemBars.right,
+                systemBars.bottom
+            )
             insets
         }
 
+        // Mengatur Toolbar sebagai ActionBar
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
             setHomeAsUpIndicator(R.drawable.ic_home)
-            title = "Villagio"
-            subtitle = "Inventaris Aset Desa"
+            title = "Activity Fifth"
+            subtitle = "Ini adalah subtitle"
             setDisplayHomeAsUpEnabled(true)
         }
-        binding.chipGroupFilter.setOnCheckedStateChangeListener { group, checkedIds ->
-            val selectedChipId = checkedIds.firstOrNull() // Ambil ID chip yang dipilih
-            if (selectedChipId != null) {
-                val chip = group.findViewById<Chip>(selectedChipId)
-                Toast.makeText(this, "Filter: ${chip.text}", Toast.LENGTH_SHORT).show()
-                // Lakukan logika filter di sini
-            }
-        }
 
+        // 🔹 Navigasi ke WebViewActivity saat tombol diklik
+        binding.toolbar.setOnClickListener {
+            val intent = Intent(this, WebView5Activity::class.java)
+            startActivity(intent)
+        }
     }
 
+    // Menampilkan menu pada Toolbar
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    // Menangani aksi pada menu dan tombol back
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
 

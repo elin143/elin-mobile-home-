@@ -1,4 +1,4 @@
-package com.example.elin_cortis.pertemuan6
+package com.example.elin_cortis.Home.pertemuan6
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.elin_cortis.R
-import com.example.elin_cortis.RegistrasiActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

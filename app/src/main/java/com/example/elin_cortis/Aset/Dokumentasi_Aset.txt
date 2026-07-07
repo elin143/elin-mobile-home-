@@ -1,0 +1,66 @@
+============================================================
+
+STRUKTUR ROOM DATABASE
+============================================================
+
+A. Entity (AsetEntity.kt)
+
+Deskripsi: Representasi tabel "aset" di dalam database.
+Field:
+id (Primary Key, AutoGenerate): ID unik setiap aset.
+kode_aset: Kode identifikasi aset.
+nama_aset: Nama aset yang didaftarkan.
+kategori: Jenis aset (Elektronik, Furniture, Kendaraan, dll).
+lokasi: Lokasi penyimpanan aset.
+kondisi: Status kondisi aset (Baik, Rusak Ringan, Rusak Berat).
+tanggal_input: Tanggal aset dicatat ke sistem.
+
+B. DAO (AsetDao.kt)
+
+Deskripsi: Interface yang berisi fungsi CRUD (Create, Read, Update, Delete).
+Fungsi Utama:
+getAll(): Mengambil seluruh data aset dari database.
+insert(): Menambahkan data aset baru.
+update(): Memperbarui informasi aset.
+delete(): Menghapus data aset tertentu.
+
+C. AppDatabase (AppDatabase.kt)
+
+Deskripsi: Kelas utama pengelola database menggunakan pola Singleton.
+Singleton: Memastikan hanya ada satu instance database yang aktif selama aplikasi berjalan sehingga penggunaan memori lebih efisien.
+
+A. Menambah Data Aset (FormAsetActivity)
+
+User mengisi formulir data aset pada antarmuka aplikasi.
+Saat tombol "Save" ditekan, fungsi saveData() dijalankan.
+Sistem melakukan validasi untuk memastikan data wajib telah diisi.
+Coroutine melalui lifecycleScope.launch digunakan agar proses penyimpanan berjalan di Background Thread.
+Data dikonversi menjadi objek AsetEntity lalu dikirim ke DAO untuk disimpan ke database.
+
+B. Menampilkan Daftar Aset (AsetFragment & AsetAdapter)
+
+Saat halaman daftar aset dibuka, fungsi fetchAset() mengambil data dari database.
+Data yang diterima dalam bentuk List dimasukkan ke Adapter.
+RecyclerView menampilkan seluruh data aset kepada pengguna.
+notifyDataSetChanged() digunakan untuk memperbarui tampilan ketika terjadi perubahan data.
+onResume() digunakan agar daftar aset otomatis diperbarui setiap kali pengguna kembali dari halaman tambah atau edit aset.
+
+C. Mengubah Data Aset
+
+User memilih data aset yang ingin diperbarui.
+Data lama ditampilkan pada form edit.
+Setelah perubahan disimpan, fungsi update() pada DAO dijalankan.
+Database diperbarui dan tampilan daftar aset direfresh.
+
+D. Menghapus Data Aset
+
+User menekan ikon hapus pada salah satu data aset.
+Sistem menampilkan dialog konfirmasi menggunakan MaterialAlertDialog.
+Jika pengguna memilih "Ya", fungsi deleteAset() dijalankan.
+Data dihapus dari database dan daftar aset diperbarui secara otomatis.
+Room Database: Library Android untuk menyimpan dan mengelola data lokal secara terstruktur menggunakan SQLite.
+Coroutines (lifecycleScope.launch): Menjalankan proses database di Background Thread agar aplikasi tetap responsif.
+RecyclerView & Adapter: Menampilkan daftar aset secara dinamis dan efisien.
+ViewBinding: Menghubungkan komponen XML dengan Kotlin secara aman tanpa findViewById().
+Singleton Pattern: Mengelola instance database agar tidak dibuat berulang kali dan lebih hemat resource.
+CRUD Operation: Konsep dasar pengelolaan data yang meliputi Create, Read, Update, dan Delete.

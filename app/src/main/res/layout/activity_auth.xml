@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CBEDC7"
-    tools:context=".pertemuan6.AuthActivity">
+    tools:context=".Home.pertemuan6.AuthActivity">
 
     <ImageView
         android:id="@+id/imageView2"

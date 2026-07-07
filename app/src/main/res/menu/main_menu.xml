@@ -17,5 +17,10 @@
         android:id="@+id/action_darkmode"
         android:title="Dark Mode"
         android:checkable="true" />
+    <item
+        android:id="@+id/action_tutorial"
+        android:title="Search"
+        android:icon="@drawable/ic_info"
+        app:showAsAction="ifRoom" />
 
 </menu>

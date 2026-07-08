@@ -6,68 +6,144 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CBEDC7"
+    android:background="@color/sage_background"
     tools:context=".Home.pertemuan6.AuthActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="216dp"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/inputUsername"
-        android:layout_width="188dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:hint="username"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="24dp">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Login"
-        android:backgroundTint="#054B00"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputPw" />
+            <!-- Branding Header -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                app:cardCornerRadius="48dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="16dp">
 
-    <EditText
-        android:id="@+id/inputPw"
-        android:layout_width="187dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:hint="password"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputUsername" />
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/logo"
+                    android:contentDescription="Villagio Logo" />
+            </androidx.cardview.widget.CardView>
 
-    <Button
-        android:id="@+id/signup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:backgroundTint="#054B00"
-        android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masuk ke Villagio"
+                android:textSize="24sp"
+                android:textColor="@color/sage_on_primary_container"
+                android:fontFamily="@font/poppins_bold"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masukkan kredensial admin inventaris desa"
+                android:textSize="13sp"
+                android:textColor="@color/sage_outline"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- Form Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/sage_card"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Username field -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Username"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:textColor="@color/sage_primary"
+                        android:layout_marginBottom="4dp"/>
+
+                    <EditText
+                        android:id="@+id/inputUsername"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="Masukkan Username"
+                        android:inputType="text"
+                        android:textSize="14sp"
+                        android:background="@drawable/bg_input"
+                        android:padding="12dp"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Password field -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kata Sandi (Password)"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:textColor="@color/sage_primary"
+                        android:layout_marginBottom="4dp"/>
+
+                    <EditText
+                        android:id="@+id/inputPw"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:hint="Masukkan Password"
+                        android:inputType="textPassword"
+                        android:textSize="14sp"
+                        android:background="@drawable/bg_input"
+                        android:padding="12dp"
+                        android:layout_marginBottom="24dp" />
+
+                    <!-- Login Button -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Masuk Aplikasi"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/sage_on_primary"
+                        app:backgroundTint="@color/sage_primary"
+                        app:cornerRadius="8dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Register Link -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/signup"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Belum punya akun? Daftar disini"
+                android:textColor="@color/sage_primary"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

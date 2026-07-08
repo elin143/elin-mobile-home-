@@ -32,238 +32,444 @@
         app:titleTextColor="@android:color/white"
         app:layout_scrollFlags="scroll|enterAlways" />
 
-    <!-- ═══ Card: Fitur Notifikasi & Pengingat ═══ -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardNotifikasi"
+    <!-- Scrollable Content Container -->
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="28dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
-        app:cardBackgroundColor="@color/sage_card"
-        app:strokeColor="@color/sage_outline_variant"
-        app:strokeWidth="0.5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:paddingBottom="24dp">
 
-            <!-- Card Header -->
-            <LinearLayout
+            <!-- ═══ Card: Fitur Notifikasi & Pengingat ═══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardNotifikasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/sage_card"
+                app:strokeColor="@color/sage_outline_variant"
+                app:strokeWidth="0.5dp">
 
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="24dp"
-                    android:background="@color/sage_primary"
-                    android:layout_marginEnd="12dp"/>
-
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="🔔 Notifikasi &amp; Pengingat"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/sage_on_surface"/>
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipPermissionStatus"
-                    style="@style/Widget.MaterialComponents.Chip.Action"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Izin OK"
-                    android:textSize="11sp"
-                    app:chipIcon="@drawable/ic_info"
-                    app:chipIconSize="16dp"
-                    app:chipBackgroundColor="@color/sage_primary_container"
-                    android:checkable="false" />
-            </LinearLayout>
+                    <!-- Card Header -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
 
-            <!-- Notification Buttons -->
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnShowNotification"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="📢 Tampilkan Notifikasi Aset"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/ic_message"
-                app:iconGravity="start"
-                app:backgroundTint="@color/sage_primary"
-                android:layout_marginBottom="10dp"/>
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/sage_primary"
+                            android:layout_marginEnd="12dp"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnScheduleReminder"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:text="⏰ Jadwalkan Pengingat Aset"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:cornerRadius="12dp"
-                app:icon="@drawable/ic_info"
-                app:iconGravity="start"
-                app:backgroundTint="@color/sage_accent"
-                app:strokeColor="@color/sage_primary"
-                app:strokeWidth="2dp"
-                android:layout_marginBottom="6dp"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="🔔 Notifikasi &amp; Pengingat"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/sage_on_surface"/>
 
-            <TextView
-                android:id="@+id/tvReminderHint"
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipPermissionStatus"
+                            style="@style/Widget.MaterialComponents.Chip.Action"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Izin OK"
+                            android:textSize="11sp"
+                            app:chipIcon="@drawable/ic_info"
+                            app:chipIconSize="16dp"
+                            app:chipBackgroundColor="@color/sage_primary_container"
+                            android:checkable="false" />
+                    </LinearLayout>
+
+                    <!-- Notification Buttons -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnShowNotification"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="📢 Tampilkan Notifikasi Aset"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp"
+                        app:icon="@drawable/ic_message"
+                        app:iconGravity="start"
+                        app:backgroundTint="@color/sage_primary"
+                        android:layout_marginBottom="10dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnScheduleReminder"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:text="⏰ Jadwalkan Pengingat Aset"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:cornerRadius="12dp"
+                        app:icon="@drawable/ic_info"
+                        app:iconGravity="start"
+                        app:backgroundTint="@color/sage_accent"
+                        app:strokeColor="@color/sage_primary"
+                        app:strokeWidth="2dp"
+                        android:layout_marginBottom="6dp"/>
+
+                    <TextView
+                        android:id="@+id/tvReminderHint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="💡 Pengingat akan muncul 10 detik setelah tombol ditekan"
+                        android:textSize="11sp"
+                        android:textColor="@color/sage_on_surface_variant"
+                        android:gravity="center"
+                        android:alpha="0.7"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ═══ Card: Fitur Unggulan ═══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardFitur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="💡 Pengingat akan muncul 10 detik setelah tombol ditekan"
-                android:textSize="11sp"
-                android:textColor="@color/sage_on_surface_variant"
-                android:gravity="center"
-                android:alpha="0.7"/>
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/sage_card"
+                app:strokeColor="@color/sage_outline_variant"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/sage_accent"
+                            android:layout_marginEnd="12dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="⚡ Fitur Inventaris Desa"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/sage_on_surface"/>
+                    </LinearLayout>
+
+                    <androidx.gridlayout.widget.GridLayout
+                        android:id="@+id/gridMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        app:columnCount="3"
+                        app:useDefaultMargins="true">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMenuCekAset"
+                            android:text="📋 Cek Aset"
+                            app:cornerRadius="10dp"
+                            app:icon="@drawable/ic_home"
+                            app:iconGravity="top"
+                            app:iconSize="36sp"
+                            app:iconTint="@color/sage_primary"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            app:strokeColor="@color/sage_outline_variant" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMenuTambah"
+                            android:text="➕ Tambah"
+                            app:cornerRadius="10dp"
+                            app:icon="@drawable/ic_add"
+                            app:iconGravity="top"
+                            app:iconSize="36sp"
+                            app:iconTint="@color/sage_primary"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            app:strokeColor="@color/sage_outline_variant" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMenuLaporan"
+                            android:text="📊 Laporan"
+                            app:cornerRadius="10dp"
+                            app:icon="@drawable/ic_edit"
+                            app:iconGravity="top"
+                            app:iconSize="36sp"
+                            app:iconTint="@color/sage_primary"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            app:strokeColor="@color/sage_outline_variant" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMenuKategori"
+                            android:text="🏷️ Kategori"
+                            app:cornerRadius="10dp"
+                            app:icon="@drawable/ic_info"
+                            app:iconGravity="top"
+                            app:iconSize="36sp"
+                            app:iconTint="@color/sage_primary"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            app:strokeColor="@color/sage_outline_variant" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMenuPengingat"
+                            android:text="🔔 Pengingat"
+                            app:cornerRadius="10dp"
+                            app:icon="@drawable/ic_message"
+                            app:iconGravity="top"
+                            app:iconSize="36sp"
+                            app:iconTint="@color/sage_accent"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            app:strokeColor="@color/sage_outline_variant" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnMenuBatalReminder"
+                            android:text="🔕 Batal"
+                            app:cornerRadius="10dp"
+                            app:icon="@drawable/ic_settings"
+                            app:iconGravity="top"
+                            app:iconSize="36sp"
+                            app:iconTint="#C0392B"
+                            app:layout_columnWeight="1"
+                            app:layout_gravity="fill_horizontal"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            app:strokeColor="@color/sage_outline_variant" />
+
+                    </androidx.gridlayout.widget.GridLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ═══ Card: Form Input (Material Design Lanjutan) ═══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/sage_card"
+                app:strokeColor="@color/sage_outline_variant"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/sage_primary"
+                            android:layout_marginEnd="12dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="✍️ Log Cepat Pemeliharaan Aset"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/sage_on_surface"/>
+                    </LinearLayout>
+
+                    <!-- Priority Choice ChipGroup -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pilih Prioritas Kerusakan:"
+                        android:textSize="13sp"
+                        android:textColor="@color/sage_on_surface"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupPriority"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:singleSelection="true"
+                        android:layout_marginBottom="16dp">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipPriorityLow"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Rendah"
+                            android:checked="true"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipPriorityMedium"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sedang" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipPriorityHigh"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tinggi" />
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <!-- TextInputLayout Demo -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/layoutEtLogCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Kode Laporan Kerusakan"
+                        app:boxStrokeColor="@color/sage_primary"
+                        app:hintTextColor="@color/sage_primary"
+                        app:helperText="Masukkan angka kode log kerusakan"
+                        app:prefixText="LOG-"
+                        app:suffixText="-2026"
+                        android:layout_marginBottom="16dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etLogCode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="number" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSubmitLogQuick"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:text="Kirim Log Laporan"
+                        android:textColor="@color/sage_on_primary"
+                        app:cornerRadius="8dp"
+                        app:backgroundTint="@color/sage_primary"
+                        app:icon="@drawable/ic_add"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- ═══ Card: List View Demonstration (Adapters) ═══ -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/sage_card"
+                app:strokeColor="@color/sage_outline_variant"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="16dp">
+
+                        <View
+                            android:layout_width="4dp"
+                            android:layout_height="24dp"
+                            android:background="@color/sage_primary"
+                            android:layout_marginEnd="12dp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="📋 Demonstrasi ListView &amp; Adapter"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/sage_on_surface"/>
+                    </LinearLayout>
+
+                    <!-- Adapter Mode Selector Chips -->
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupAdapterMode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:singleSelection="true"
+                        android:layout_marginBottom="12dp">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipModeArrayAdapter"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ArrayAdapter"
+                            android:checked="true"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipModeSimpleAdapter"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SimpleAdapter" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipModeCustomAdapter"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="CustomAdapter" />
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <!-- Fixed Height ListView container to prevent Scrolling Conflict -->
+                    <ListView
+                        android:id="@+id/listViewDemo"
+                        android:layout_width="match_parent"
+                        android:layout_height="240dp"
+                        android:background="@color/sage_background"
+                        android:divider="@color/sage_divider"
+                        android:dividerHeight="1dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- ═══ Card: Fitur Unggulan ═══ -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardFitur"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
-        app:cardBackgroundColor="@color/sage_card"
-        app:strokeColor="@color/sage_outline_variant"
-        app:strokeWidth="0.5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardNotifikasi">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="16dp">
-
-                <View
-                    android:layout_width="4dp"
-                    android:layout_height="24dp"
-                    android:background="@color/sage_accent"
-                    android:layout_marginEnd="12dp"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⚡ Fitur Inventaris Desa"
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/sage_on_surface"/>
-            </LinearLayout>
-
-            <androidx.gridlayout.widget.GridLayout
-                android:id="@+id/gridMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                app:columnCount="3"
-                app:useDefaultMargins="true">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMenuCekAset"
-                    android:text="📋 Cek Aset"
-                    app:cornerRadius="10dp"
-                    app:icon="@drawable/ic_home"
-                    app:iconGravity="top"
-                    app:iconSize="36sp"
-                    app:iconTint="@color/sage_primary"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill_horizontal"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    app:strokeColor="@color/sage_outline_variant" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMenuTambah"
-                    android:text="➕ Tambah"
-                    app:cornerRadius="10dp"
-                    app:icon="@drawable/ic_add"
-                    app:iconGravity="top"
-                    app:iconSize="36sp"
-                    app:iconTint="@color/sage_primary"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill_horizontal"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    app:strokeColor="@color/sage_outline_variant" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMenuLaporan"
-                    android:text="📊 Laporan"
-                    app:cornerRadius="10dp"
-                    app:icon="@drawable/ic_edit"
-                    app:iconGravity="top"
-                    app:iconSize="36sp"
-                    app:iconTint="@color/sage_primary"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill_horizontal"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    app:strokeColor="@color/sage_outline_variant" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMenuKategori"
-                    android:text="🏷️ Kategori"
-                    app:cornerRadius="10dp"
-                    app:icon="@drawable/ic_info"
-                    app:iconGravity="top"
-                    app:iconSize="36sp"
-                    app:iconTint="@color/sage_primary"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill_horizontal"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    app:strokeColor="@color/sage_outline_variant" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMenuPengingat"
-                    android:text="🔔 Pengingat"
-                    app:cornerRadius="10dp"
-                    app:icon="@drawable/ic_message"
-                    app:iconGravity="top"
-                    app:iconSize="36sp"
-                    app:iconTint="@color/sage_accent"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill_horizontal"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    app:strokeColor="@color/sage_outline_variant" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnMenuBatalReminder"
-                    android:text="🔕 Batal"
-                    app:cornerRadius="10dp"
-                    app:icon="@drawable/ic_settings"
-                    app:iconGravity="top"
-                    app:iconSize="36sp"
-                    app:iconTint="#C0392B"
-                    app:layout_columnWeight="1"
-                    app:layout_gravity="fill_horizontal"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                    app:strokeColor="@color/sage_outline_variant" />
-
-            </androidx.gridlayout.widget.GridLayout>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

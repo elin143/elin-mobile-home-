@@ -5,30 +5,166 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CBEDC7"
+    android:background="@drawable/splash_gradient_bg"
     tools:context=".Home.pertemuan6.SplashScreenActivity">
 
+    <!-- Decorative leaf pattern at the bottom -->
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="246dp"
-        android:layout_height="404dp"
+        android:id="@+id/ivLeafDecoration"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:src="@drawable/splash_leaf_decoration"
+        android:scaleType="fitXY"
+        android:alpha="0.7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.581"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Dark gradient overlay at the very bottom -->
+    <View
+        android:id="@+id/bottomOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/splash_dark_gradient"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Small decorative top-right leaf accent -->
+    <View
+        android:id="@+id/topRightAccent"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/splash_dark_gradient"
+        android:alpha="0.15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- ========================== -->
+    <!-- Center Content (Animated)   -->
+    <!-- ========================== -->
+
+    <!-- Logo Card with glow effect -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardLogo"
+        android:layout_width="148dp"
+        android:layout_height="148dp"
+        app:cardCornerRadius="74dp"
+        app:cardElevation="16dp"
+        app:cardBackgroundColor="#FFFFFF"
+        android:animateLayoutChanges="true"
+        app:cardMaxElevation="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtAppName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.403"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintVertical_chainStyle="packed">
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Inner glow ring -->
+            <View
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_gravity="center"
+                android:background="@drawable/splash_gradient_bg"
+                android:alpha="0.08"
+                android:layout_margin="10dp" />
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo"
+                android:contentDescription="Villagio Logo" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- App Name -->
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/txtAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Villagio || inventaris aset desa"
+        android:text="Villagio"
+        android:textColor="#FFFFFF"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_bold"
+        android:letterSpacing="0.04"
+        android:shadowColor="#1A000000"
+        android:shadowDx="1"
+        android:shadowDy="2"
+        android:shadowRadius="4"
+        android:layout_marginTop="28dp"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toTopOf="@+id/txtSubtitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardLogo" />
+
+    <!-- Subtitle -->
+    <TextView
+        android:id="@+id/txtSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sistem Inventaris &amp; Manajemen Aset"
+        android:textColor="#DDE5D3"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif"
+        android:letterSpacing="0.02"
+        android:layout_marginTop="6dp"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toTopOf="@+id/txtLoading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppName" />
+
+    <!-- Tagline -->
+    <TextView
+        android:id="@+id/txtTagline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desa Tertib Aset, Bersama Villagio"
+        android:textColor="#C4D8B5"
+        android:textSize="11sp"
+        android:fontFamily="sans-serif"
+        android:letterSpacing="0.06"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtLoading"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSubtitle" />
+
+    <!-- Loading Indicator with custom style -->
+    <ProgressBar
+        android:id="@+id/txtLoading"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:indeterminateTint="#DDE5D3"
+        android:alpha="0.9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.403" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTagline"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <!-- Version info at the very bottom -->
+    <TextView
+        android:id="@+id/txtVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="v1.0.0 • Bina Desa"
+        android:textColor="#A2BD7E"
+        android:textSize="10sp"
+        android:alpha="0.6"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

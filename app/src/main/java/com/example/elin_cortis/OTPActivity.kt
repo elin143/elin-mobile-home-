@@ -6,9 +6,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.widget.Toast
+import com.example.elin_cortis.Home.pertemuan6.AuthActivity
 import com.example.elin_cortis.databinding.ActivityOtpactivityBinding
 import com.google.android.material.snackbar.Snackbar
-import com.example.elin_cortis.Home.pertemuan6.MainActivity
 
 class OTPActivity : AppCompatActivity() {
     private lateinit var binding: ActivityOtpactivityBinding
@@ -31,16 +32,17 @@ class OTPActivity : AppCompatActivity() {
         //OTP
         binding.submitOTP.setOnClickListener {
             val input_no_hp = binding.verifikasi.text.toString()
-            val reg_no_hp = sharedPref.getString("No_HP", "")
+            val reg_no_hp = sharedPref.getString("no_hp", "")
 
             if (reg_no_hp == input_no_hp) {
-                intent = Intent(this, MainActivity::class.java)
+                Toast.makeText(this, "Registrasi Berhasil! Silakan masuk.", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, AuthActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(intent)
-
+                finish()
             } else {
-                Snackbar.make(binding.root, "password salah", Snackbar.LENGTH_SHORT)
+                Snackbar.make(binding.root, "Kode OTP salah", Snackbar.LENGTH_SHORT)
                     .show()
-                intent
             }
         }
     }

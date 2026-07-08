@@ -19,20 +19,24 @@ class SettingsFragment : Fragment() {
 
     // Data title + subtitle
     private val settingsTitle = arrayOf(
-        "🔒 Privasi & Keamanan",
-        "ℹ️ Tentang Aplikasi",
-        "📋 Panduan Penggunaan",
-        "📞 Hubungi Kami",
+        "👤 Akun & Profil",
+        "🔔 Notifikasi",
+        "🎨 Tampilan (Tema)",
+        "🔒 Keamanan & Sandi",
+        "🌐 Bahasa",
+        "💡 Bantuan & Dukungan",
         "📄 Syarat & Ketentuan",
         "🔄 Versi Aplikasi"
     )
 
     private val settingsSubtitle = arrayOf(
-        "Kelola keamanan dan privasi akun",
-        "Informasi versi dan developer",
-        "Cara menggunakan aplikasi",
-        "Hubungi admin desa",
-        "Baca syarat & ketentuan penggunaan",
+        "Detail profil administrator desa",
+        "Pengatur pengingat pemeliharaan aset",
+        "Ganti ke Mode Gelap atau Hijau Sage",
+        "Kelola kata sandi dan pin pengaman",
+        "Atur bahasa aplikasi (Indonesia / Inggris)",
+        "Laporkan kendala sistem inventaris",
+        "Kebijakan penggunaan data desa",
         "Versi 1.0.0"
     )
 

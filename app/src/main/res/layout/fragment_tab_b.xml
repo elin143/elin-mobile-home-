@@ -1,17 +1,180 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A1C3C1"
+    android:background="@color/sage_background"
     tools:context=".Home.pertemuan_10.TabBFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ini konten Tab B"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:textAlignment="center"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-</FrameLayout>
+        <!-- FAQ Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Panduan &amp; Tanya Jawab Aset Desa"
+            android:textSize="16sp"
+            android:textColor="@color/sage_on_primary_container"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Expandable Card 1 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardQ1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="@color/sage_card"
+            app:strokeColor="@color/sage_outline_variant"
+            app:strokeWidth="0.5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Bagaimana cara mendaftarkan aset baru?"
+                        android:textStyle="bold"
+                        android:textColor="@color/sage_on_surface"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="▼"
+                        android:textSize="10sp"
+                        android:textColor="@color/sage_primary"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvAns1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Untuk mendaftarkan aset baru, Anda dapat membuka halaman Kelola Database Aset, ketuk tombol floating tambah (+) di sudut kanan bawah, isi data formulir (kode aset, nama aset, kategori, lokasi, kondisi), kemudian tekan Simpan."
+                    android:textSize="12sp"
+                    android:textColor="@color/sage_on_surface_variant"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:lineSpacingMultiplier="1.2"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Expandable Card 2 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardQ2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="@color/sage_card"
+            app:strokeColor="@color/sage_outline_variant"
+            app:strokeWidth="0.5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Bagaimana cara melaporkan kerusakan aset desa?"
+                        android:textStyle="bold"
+                        android:textColor="@color/sage_on_surface"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="▼"
+                        android:textSize="10sp"
+                        android:textColor="@color/sage_primary"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvAns2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Buka database aset, pilih item aset yang rusak dari daftar, ketuk ikon edit/pensil, perbarui kondisi aset menjadi 'Rusak Ringan/Berat', lalu simpan perubahan. Tim pemeliharaan akan menerima laporan pembaruan tersebut secara otomatis."
+                    android:textSize="12sp"
+                    android:textColor="@color/sage_on_surface_variant"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:lineSpacingMultiplier="1.2"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Expandable Card 3 -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardQ3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="@color/sage_card"
+            app:strokeColor="@color/sage_outline_variant"
+            app:strokeWidth="0.5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Siapa yang dapat mengelola sistem ini?"
+                        android:textStyle="bold"
+                        android:textColor="@color/sage_on_surface"
+                        android:textSize="13sp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="▼"
+                        android:textSize="10sp"
+                        android:textColor="@color/sage_primary"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvAns3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Sistem ini dapat dikelola oleh Kepala Desa, Sekdes, Staf Administrasi Aset, dan kepala urusan umum (Kaur) yang telah terdaftar dalam sistem credential internal Villagio."
+                    android:textSize="12sp"
+                    android:textColor="@color/sage_on_surface_variant"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:lineSpacingMultiplier="1.2"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#889E78"
+    android:background="@color/sage_secondary"
     tools:context=".About.Tutorial.Tutorial2Fragment">
 
     <ImageView
@@ -12,7 +13,7 @@
         android:layout_width="251dp"
         android:layout_height="206dp"
         android:layout_marginTop="120dp"
-        android:src="@drawable/gambar"
+        android:src="@drawable/gambar1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -21,12 +22,12 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Atur Semua dalam Genggaman"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/poppins_bold"
+        android:text="Pencatatan &amp; Pemantauan Aset 📦"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,14 +35,15 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="340dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Nikmati berbagai fitur canggih yang dirancang khusus untuk mempermudah rutinitas harianmu."
+        android:text="Catat seluruh aset desa (tanah, gedung, kendaraan, jalan, peralatan) lengkap dengan kode, lokasi, dan status kondisi fisiknya."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="15sp"
+        android:alpha="0.9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

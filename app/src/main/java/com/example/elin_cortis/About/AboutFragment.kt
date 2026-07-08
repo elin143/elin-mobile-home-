@@ -37,6 +37,11 @@ class AboutFragment : Fragment() {
             title = "About"
         }
         setHasOptionsMenu(true)
+
+        binding.btnStartTutorial.setOnClickListener {
+            val intent = Intent(requireContext(), TutorialMessageActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

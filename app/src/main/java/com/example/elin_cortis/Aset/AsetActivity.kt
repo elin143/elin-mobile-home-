@@ -71,26 +71,36 @@ class AsetActivity : AppCompatActivity() {
     }
 
     fun deleteAset(aset: AsetEntity) {
-        lifecycleScope.launch {
-            // 1. Hapus Data Aset
-            db.AsetDao().delete(aset)
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Hapus Aset")
+            .setMessage("Apakah Anda yakin ingin menghapus aset ${aset.nama_aset}?")
+            .setPositiveButton("Ya") { dialog, _ ->
+                dialog.dismiss()
+                lifecycleScope.launch {
+                    // 1. Hapus Data Aset
+                    db.AsetDao().delete(aset)
 
-            // 2. CATAT LOG OTOMATIS (Penghapusan)
-            val currentTime = SimpleDateFormat(
-                "dd MMM yyyy, HH:mm",
-                Locale.getDefault()
-            ).format(Date())
+                    // 2. CATAT LOG OTOMATIS (Penghapusan)
+                    val currentTime = SimpleDateFormat(
+                        "dd MMM yyyy, HH:mm",
+                        Locale.getDefault()
+                    ).format(Date())
 
-            val logEntry = LogEntity(
-                title = "Penghapusan Data Aset",
-                description = "Data Aset ${aset.kode_aset} dengan nama ${aset.nama_aset} telah dihapus.",
-                category = "Aset",
-                timestamp = currentTime
-            )
+                    val logEntry = LogEntity(
+                        title = "Penghapusan Data Aset",
+                        description = "Data Aset ${aset.kode_aset} dengan nama ${aset.nama_aset} telah dihapus.",
+                        category = "Aset",
+                        timestamp = currentTime
+                    )
 
-            db.LogDao().insertLog(logEntry)
+                    db.LogDao().insertLog(logEntry)
 
-            fetchAset()
-        }
+                    fetchAset()
+                }
+            }
+            .setNegativeButton("Batal") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .show()
     }
 }

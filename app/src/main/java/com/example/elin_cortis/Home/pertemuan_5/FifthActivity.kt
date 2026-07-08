@@ -39,8 +39,8 @@ class FifthActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
             setHomeAsUpIndicator(R.drawable.ic_home)
-            title = "Activity Fifth"
-            subtitle = "Ini adalah subtitle"
+            title = "Portal Berita Desa"
+            subtitle = "Pengumuman dan Berita Resmi Villagio"
             setDisplayHomeAsUpEnabled(true)
         }
 

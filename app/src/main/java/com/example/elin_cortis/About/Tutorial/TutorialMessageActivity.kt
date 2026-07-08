@@ -5,6 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.view.View
+import androidx.viewpager2.widget.ViewPager2
 import com.example.elin_cortis.R
 import com.example.elin_cortis.databinding.ActivityTutorialMessageBinding
 
@@ -29,6 +31,32 @@ class TutorialMessageActivity : AppCompatActivity() {
         val adapter = TutorialFragmentAdapter(this, fragmentsList)
         binding.tutorialMessageViewPager.adapter = adapter
         binding.dotIndicator.attachTo(binding.tutorialMessageViewPager)
+
+        binding.btnSkip.setOnClickListener {
+            finish()
+        }
+
+        binding.btnNext.setOnClickListener {
+            val currentItem = binding.tutorialMessageViewPager.currentItem
+            if (currentItem < fragmentsList.size - 1) {
+                binding.tutorialMessageViewPager.currentItem = currentItem + 1
+            } else {
+                finish()
+            }
+        }
+
+        binding.tutorialMessageViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                if (position == fragmentsList.size - 1) {
+                    binding.btnNext.text = "Selesai"
+                    binding.btnSkip.visibility = View.INVISIBLE
+                } else {
+                    binding.btnNext.text = "Lanjut"
+                    binding.btnSkip.visibility = View.VISIBLE
+                }
+            }
+        })
     }
 
 }

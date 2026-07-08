@@ -29,7 +29,7 @@ class TenthActivity : AppCompatActivity() {
         }
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Tenth Activity"
+            title = "Katalog Estimasi Aset"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
@@ -43,30 +43,26 @@ class TenthActivity : AppCompatActivity() {
             // Atur judul untuk setiap tab
             when (position) {
                 0 -> {
-                    tab.text = "Tab A"
+                    tab.text = "Info"
                     //Tambah Icon
-                    tab.icon = ContextCompat.getDrawable(  this, R.drawable.ic_home)
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_info)
                     //Tambah Badge Tanpa nomor (hanya titik)
                     val badge = tab.getOrCreateBadge()
                     badge.isVisible = true
                 }
                 1 -> {
-                    tab.text = "Tab B"
+                    tab.text = "Panduan"
                     //Tambah Icon
-                    tab.icon = ContextCompat.getDrawable(  this, R.drawable.ic_home)
-                    //Tambah Badge dengan nomor
-                    val badge = tab.getOrCreateBadge()
-                    badge.isVisible = true
-                    badge.number = 5
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_settings)
                 }
                 2 -> {
-                    tab.text = "Tab C"
+                    tab.text = "Katalog"
                     //Tambah Icon
-                    tab.icon = ContextCompat.getDrawable(  this, R.drawable.ic_home)
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_home)
                     //Tambah Badge dengan nomor
                     val badge = tab.getOrCreateBadge()
                     badge.isVisible = true
-                    badge.number = 5
+                    badge.number = 40
                 }
             }
         }.attach()

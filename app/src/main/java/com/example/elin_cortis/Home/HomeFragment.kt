@@ -11,7 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.elin_cortis.Aset.AsetActivity
+import com.example.elin_cortis.Aset.ScanQrActivity
+import com.example.elin_cortis.Hitung_hitung
 import com.example.elin_cortis.Home.pertemuan6.AuthActivity
+import com.example.elin_cortis.Home.pertemuan6.WebViewActivity
 import com.example.elin_cortis.Home.pertemuan_10.TenthActivity
 import com.example.elin_cortis.Home.pertemuan_5.FifthActivity
 import com.example.elin_cortis.Home.pertemuan_9.NinthActivity
@@ -40,6 +44,27 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val sharedPref = requireActivity().getSharedPreferences("user_pref", AppCompatActivity.MODE_PRIVATE)
+
+        binding.btnAset.setOnClickListener {
+            val intent = Intent(requireContext(), AsetActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btn13.setOnClickListener {
+            val intent = Intent(requireContext(), ScanQrActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnKalkulator.setOnClickListener {
+            val intent = Intent(requireContext(), Hitung_hitung::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnWebView.setOnClickListener {
+            val intent = Intent(requireContext(), WebViewActivity::class.java)
+            startActivity(intent)
+        }
+
         binding.btn5.setOnClickListener {
             val intent = Intent(requireContext(), FifthActivity::class.java)
             startActivity(intent)
@@ -64,7 +89,7 @@ class HomeFragment : Fragment() {
                     editor.apply()
 
                     val intent = Intent(requireContext(), AuthActivity::class.java)
-
+                    startActivity(intent)
                     requireActivity().finish()
                 }
                 .setNegativeButton("Batal") { dialog, _ ->
@@ -80,20 +105,52 @@ private fun loadPhoto() {
     lifecycleScope.launch {
         try {
             val photos = PhotoApiClient.apiService.getPhotos()
-            val adapter = PhotoAdapter(photos)
+            val assetNames = listOf(
+                "Balai Pertemuan Desa Villagio",
+                "Mobil Ambulans Siaga",
+                "Traktor Pertanian Tani",
+                "Komputer Administrasi Pelayanan",
+                "Peralatan Linmas & Keamanan",
+                "Lampu Penerangan Jalan Umum",
+                "Mesin Pencacah Sampah",
+                "Tenda Pengungsian Darurat",
+                "Pompa Air Irigasi",
+                "Fasilitas Playground PAUD"
+            )
+            val assetImages = listOf(
+                "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1588702547919-26089e690eca?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1599819811279-d5ad9cccf838?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1463171359979-300627e36b06?q=80&w=600&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=600&auto=format&fit=crop"
+            )
+
+            val themedPhotos = photos.mapIndexed { index, photoModel ->
+                val nameIndex = index % assetNames.size
+                photoModel.copy(
+                    author = assetNames[nameIndex],
+                    download_url = assetImages[nameIndex]
+                )
+            }
+
+            val adapter = PhotoAdapter(themedPhotos)
             binding.rvGallery.adapter = adapter
-
-            /** List Tampil Vertical*/
             binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
-
-            /** List Tampil Horizontal */
-            //binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-
-            /** List Tampil Grid */
-            //binding.rvGallery.layoutManager = GridLayoutManager(requireContext(),2)
-
         } catch (e: Exception) {
-            Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            val fallbackPhotos = listOf(
+                com.example.elin_cortis.data.model.PhotoModel("1", "Balai Pertemuan Desa Villagio", "https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?q=80&w=600&auto=format&fit=crop"),
+                com.example.elin_cortis.data.model.PhotoModel("2", "Mobil Ambulans Siaga", "https://images.unsplash.com/photo-1587300003388-59208cc962cb?q=80&w=600&auto=format&fit=crop"),
+                com.example.elin_cortis.data.model.PhotoModel("3", "Traktor Pertanian Tani", "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?q=80&w=600&auto=format&fit=crop"),
+                com.example.elin_cortis.data.model.PhotoModel("4", "Komputer Administrasi Pelayanan", "https://images.unsplash.com/photo-1588702547919-26089e690eca?q=80&w=600&auto=format&fit=crop")
+            )
+            val adapter = PhotoAdapter(fallbackPhotos)
+            binding.rvGallery.adapter = adapter
+            binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
         }
     }
 }

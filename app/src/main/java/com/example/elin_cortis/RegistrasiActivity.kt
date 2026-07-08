@@ -45,16 +45,20 @@ class RegistrasiActivity : AppCompatActivity() {
                 val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
                 val editor = sharedPref.edit()
 
-                editor.putString("Registered Name", nama)
-                editor.putString("Username", username)
-                editor.putString("No_HP", input_no_hp)
-                editor.putString("Password", password)
+                editor.putString("name", nama)
+                editor.putString("username", username)
+                editor.putString("no_hp", input_no_hp)
+                editor.putString("password", password)
                 editor.apply()
 
                 val intent = Intent(this, OTPActivity::class.java)
                 intent.putExtra("evelin", input_no_hp)
                 startActivity(intent)
             }
+        }
+
+        binding.btnBackToLogin.setOnClickListener {
+            finish()
         }
     }
 }

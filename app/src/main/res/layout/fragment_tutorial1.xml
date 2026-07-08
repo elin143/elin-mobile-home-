@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A5BF8F"
+    android:background="@color/sage_primary"
     tools:context=".About.Tutorial.Tutorial1Fragment">
 
     <ImageView
@@ -21,12 +22,12 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="48dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Halo, Selamat Datang! 👋"
+        android:text="Selamat Datang di Villagio! 🏡"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,14 +35,15 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="334dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poppins_bold"
-        android:text="Langkah awal menuju kemudahan. Mari kita mulai perjalanan seru ini bersama-sama."
+        android:text="Sistem manajemen digital yang dirancang untuk mempermudah pencatatan, pemantauan, dan inventarisasi aset desa secara modern."
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="16sp"
+        android:textSize="15sp"
+        android:alpha="0.9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

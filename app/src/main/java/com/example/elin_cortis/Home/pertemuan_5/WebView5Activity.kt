@@ -35,7 +35,7 @@ class WebView5Activity : AppCompatActivity() {
         // Mengaktifkan Toolbar
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
-            title = "Web Merdeka"
+            title = "Portal Berita Desa"
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
